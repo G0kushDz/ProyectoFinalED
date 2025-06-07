@@ -1,0 +1,79 @@
+°°° Radix Sort °°°
+
+Radix Sort ordena los números dígito por dígito, comenzando desde el dígito menos significativo 
+(unidades) hasta el más significativo (centenas). En cada paso, utiliza un algoritmo de 
+ordenamiento estable (como Counting Sort) para ordenar los elementos según el valor del dígito 
+actual. Primero, todos los números se agrupan según su último dígito, luego según el penúltimo, 
+y así sucesivamente hasta el dígito más alto. Este proceso se repite para cada posición decimal, 
+y al finalizar todas las pasadas, la lista estará completamente ordenada. Radix Sort es 
+especialmente eficiente cuando se trabaja con números enteros de longitud similar y dentro de un 
+rango limitado.
+
+°Tiempo de ordenamiento°
+°Mejor caso: O(d × (n + k))
+ Sucede cuando el número de dígitos d es pequeño y la distribución de los elementos es favorable, 
+ permitiendo un procesamiento rápido en cada pasada.
+
+°Caso promedio: O(d × (n + k))
+ Para la mayoría de las listas, Radix Sort procesa todos los dígitos de cada elemento utilizando 
+ un algoritmo estable (como Counting Sort), manteniendo un rendimiento constante.
+
+°Peor caso: O(d × (n + k))
+ Ocurre cuando el número de dígitos d es grande, aumentando proporcionalmente el número de pasadas 
+ necesarias para ordenar completamente la lista.
+
+
+°Ventajas°
+-Puede ordenar números enteros o cadenas de forma muy eficiente cuando los datos tienen una 
+ longitud fija o rango limitado.
+-Tiene una complejidad cercana a O(d × (n + k)), donde d es el número de dígitos y k el rango de 
+ valores por dígito, lo que es muy rápido para valores con pocos dígitos.
+-Es un algoritmo estable, preserva el orden relativo de elementos iguales.
+-No depende de comparaciones, lo que le permite superar el límite O(n log n) en algunos casos.
+
+°Desventajas°
+-No es adecuado para datos con longitudes variables o con muchos dígitos, ya que el tiempo crece 
+ con d.
+-Requiere que los datos puedan ser descompuestos en dígitos o partes manejables, lo que limita 
+ su aplicabilidad.
+-Necesita espacio adicional para la clasificación por dígitos (por ejemplo, usando Counting Sort 
+ en cada pasada).
+-Implementación más compleja que algoritmos clásicos como Quick Sort o Merge Sort.
+
+
+
+°° PROGRAMA: RadixSort.py °°
+
+Para comprobar su eficiencia se realizo un programa "RadixSort.py" que se encuentra en la misma
+carpeta que este archivo.
+-El programa realiza el ordenamiento de 5 conjuntos cada uno con una cantidad diferente 
+ de elementos, los elementos son generados de forma aleatoria:
+	1er conjunto: 2 elementos
+	2do conjunto: 10 elementos
+	3er conjunto: 100 elementos
+	4to conjunto: 1000 elementos
+	5to conjunto: 10000 elementos
+
+
+Estos fueron los resultados de una ejecución del programa, se muestra la cantidad de elementos que
+se ordenaron y los pasos que tardó en realizar el ordenamiento:
+2 elementos... 54 pasos
+10 elementos... 142 pasos
+100 elementos... 2164 pasos
+1000 elementos... 21064 pasos
+10000 elementos... 210064 pasos
+
+
+
+La tabla siguiente representa una comparación de su eficiencia con otros algoritmos de ordenamiento
+(Todos hicieron la prueba con los mismos 5 conjuntos):
+
+		2 elementos	10 elementos	100 elementos	1,000 elementos	10,000 elementos
+InsertionSort	( 7  )		( 72  )	 	( 5,147 )	( 502,197 )	( 50,028,401 )
+BubbleSort	( 4  )		( 126 )		( 5,038 )	( 503,344 )	( 49,985,874 )
+MergeSort	( 14 )		( 107 )		( 1,082 )	( 11,766  )	( 132,104    )
+HeapSort	( 14 )		( 100 )		( 1,220 )	( 14,184  )	( 167,208    )
+QuickSort	( 10 )		( 71  )		( 751   )	( 9,904   )	( 117,163    )
+CountingSort	( 9  )		( 31  )		( 398   )	( 4,061   )	( 40,269     )
+RadixSort	( 33 )		( 97  )		( 969   )	( 10,314  )	( 108,804    )
+BucketSort	( 31 )		( 63  )		( 610   )	( 6,709   )	( 67,087     )
