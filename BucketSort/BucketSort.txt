@@ -1,0 +1,75 @@
+°°° Bucket Sort °°°
+
+Bucket Sort comienza dividiendo el rango de los datos en varios grupos o “buckets” (cubetas). 
+Cada elemento de la lista original se coloca en el bucket correspondiente según su valor. 
+Una vez distribuidos todos los elementos, cada bucket se ordena de forma individual, normalmente 
+utilizando otro algoritmo como Insertion Sort. Luego, todos los buckets ordenados se combinan uno 
+tras otro para formar la lista final ordenada. Este proceso se repite una vez por cada bucket. 
+Bucket Sort es especialmente eficiente cuando los datos están uniformemente distribuidos, ya que 
+permite dividir el trabajo en partes más pequeñas y ordenarlas de manera más rápida y paralela.
+
+°Tiempo de ordenamiento°
+°Mejor caso: O(n + k)
+ Ocurre cuando los datos están uniformemente distribuidos y los elementos se reparten 
+ equitativamente en los buckets, lo que permite ordenar rápidamente cada uno.
+
+°Caso promedio: O(n + k)
+ Para datos distribuidos de forma relativamente uniforme, el tiempo se mantiene cerca del mejor 
+ caso al ordenar los buckets y combinarlos.
+
+°Peor caso: O(n²)
+ Sucede cuando todos los elementos caen en un solo bucket, lo que reduce el algoritmo a un 
+ ordenamiento simple (como Insertion Sort) en toda la lista.
+
+
+°Ventajas°
+-Muy eficiente cuando los datos están uniformemente distribuidos dentro de un rango conocido.
+-Divide el problema en subproblemas más pequeños, permitiendo ordenar cada bucket con algoritmos 
+ simples y rápidos como Insertion Sort.
+-Puede aprovechar la paralelización al ordenar buckets de forma independiente.
+-Es un algoritmo estable si los métodos usados para ordenar los buckets lo son.
+
+°Desventajas°
+-Su eficiencia depende mucho de cómo estén distribuidos los datos; si están muy agrupados, puede 
+ degradarse a O(n²).
+-Requiere conocimiento previo del rango de los datos para dividirlos en buckets adecuadamente.
+-Necesita espacio adicional para almacenar los buckets.
+-No es adecuado para datos con distribución muy irregular o desconocida.
+
+
+
+°° PROGRAMA: BucketSort.py °°
+
+Para comprobar su eficiencia se realizo un programa "BucketSort.py" que se encuentra en la misma
+carpeta que este archivo.
+-El programa realiza el ordenamiento de 5 conjuntos cada uno con una cantidad diferente 
+ de elementos, los elementos son generados de forma aleatoria:
+	1er conjunto: 2 elementos
+	2do conjunto: 10 elementos
+	3er conjunto: 100 elementos
+	4to conjunto: 1000 elementos
+	5to conjunto: 10000 elementos
+
+
+Estos fueron los resultados de una ejecución del programa, se muestra la cantidad de elementos que
+se ordenaron y los pasos que tardó en realizar el ordenamiento:
+2 elementos... 25 pasos
+10 elementos... 81 pasos
+100 elementos... 711 pasos
+1000 elementos... 7011 pasos
+10000 elementos... 70011 pasos
+
+
+
+La tabla siguiente representa una comparación de su eficiencia con otros algoritmos de ordenamiento
+(Todos hicieron la prueba con los mismos 5 conjuntos):
+
+		2 elementos	10 elementos	100 elementos	1,000 elementos	10,000 elementos
+InsertionSort	( 7  )		( 72  )	 	( 5,147 )	( 502,197 )	( 50,028,401 )
+BubbleSort	( 4  )		( 126 )		( 5,038 )	( 503,344 )	( 49,985,874 )
+MergeSort	( 14 )		( 107 )		( 1,082 )	( 11,766  )	( 132,104    )
+HeapSort	( 14 )		( 100 )		( 1,220 )	( 14,184  )	( 167,208    )
+QuickSort	( 10 )		( 71  )		( 751   )	( 9,904   )	( 117,163    )
+CountingSort	( 9  )		( 31  )		( 398   )	( 4,061   )	( 40,269     )
+RadixSort	( 33 )		( 97  )		( 969   )	( 10,314  )	( 108,804    )
+BucketSort	( 31 )		( 63  )		( 610   )	( 6,709   )	( 67,087     )
