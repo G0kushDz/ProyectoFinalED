@@ -1,0 +1,76 @@
+°°° Merge Sort °°°
+
+Merge Sort divide la lista en partes más pequeñas hasta que cada sublista contiene un solo 
+elemento, ya que una lista de un solo elemento ya se considera ordenada. Luego, comienza a 
+combinar (mezclar) estas sublistas de forma ordenada. En cada paso, toma dos sublistas 
+adyacentes y las fusiona comparando sus elementos de izquierda a derecha, colocando el menor 
+de los dos primero. Este proceso de comparación y fusión se repite hasta que todas las sublistas 
+se han unido nuevamente en una sola lista completamente ordenada. Merge Sort realiza este 
+procedimiento de forma recursiva, dividiendo y luego combinando, hasta que la lista original 
+queda completamente ordenada.
+
+°Tiempo de ordenamiento°
+°Mejor caso: O(n log n)
+ Siempre realiza la misma cantidad de divisiones y fusiones, sin importar el orden inicial de 
+ los datos.
+
+°Caso promedio: O(n log n)
+ El rendimiento se mantiene constante para la mayoría de los casos, gracias a su método divide 
+ y vencerás.
+
+°Peor caso: O(n log n)
+ Independientemente de la distribución de los datos, Merge Sort siempre ejecuta un número similar 
+ de pasos.
+
+
+°Ventajas°
+-Tiene una complejidad garantizada de O(n log n) en todos los casos (mejor, promedio y peor).
+-Es un algoritmo estable, lo que significa que conserva el orden relativo de elementos iguales.
+-Muy eficiente para listas grandes y datos almacenados en medios externos (como discos) gracias 
+ a su acceso secuencial.
+-Funciona bien con listas enlazadas, ya que no requiere acceso aleatorio.
+
+°Desventajas°
+-Requiere memoria adicional proporcional al tamaño de la lista (O(n)), lo que puede ser un 
+ problema para listas muy grandes.
+-Su sobrecarga de manejo de memoria y copiado puede hacerlo menos eficiente para listas pequeñas 
+ comparado con algoritmos más simples.
+-No es un algoritmo in-place; necesita espacio extra para fusionar las sublistas.
+
+
+
+°° PROGRAMA: MergeSort.py °°
+
+Para comprobar su eficiencia se realizo un programa "MergeSort.py" que se encuentra en la misma
+carpeta que este archivo.
+-El programa realiza el ordenamiento de 5 conjuntos cada uno con una cantidad diferente 
+ de elementos, los elementos son generados de forma aleatoria:
+	1er conjunto: 2 elementos
+	2do conjunto: 10 elementos
+	3er conjunto: 100 elementos
+	4to conjunto: 1000 elementos
+	5to conjunto: 10000 elementos
+
+
+Estos fueron los resultados de una ejecución del programa, se muestra la cantidad de elementos que
+se ordenaron y los pasos que tardó en realizar el ordenamiento:
+2 elementos... 16 pasos
+10 elementos... 218 pasos
+100 elementos... 3870 pasos
+1000 elementos... 55354 pasos
+10000 elementos... 721464 pasos
+
+
+
+La tabla siguiente representa una comparación de su eficiencia con otros algoritmos de ordenamiento
+(Todos hicieron la prueba con los mismos 5 conjuntos):
+
+		2 elementos	10 elementos	100 elementos	1,000 elementos	10,000 elementos
+InsertionSort	( 7  )		( 72  )	 	( 5,147 )	( 502,197 )	( 50,028,401 )
+BubbleSort	( 4  )		( 126 )		( 5,038 )	( 503,344 )	( 49,985,874 )
+MergeSort	( 14 )		( 107 )		( 1,082 )	( 11,766  )	( 132,104    )
+HeapSort	( 14 )		( 100 )		( 1,220 )	( 14,184  )	( 167,208    )
+QuickSort	( 10 )		( 71  )		( 751   )	( 9,904   )	( 117,163    )
+CountingSort	( 9  )		( 31  )		( 398   )	( 4,061   )	( 40,269     )
+RadixSort	( 33 )		( 97  )		( 969   )	( 10,314  )	( 108,804    )
+BucketSort	( 31 )		( 63  )		( 610   )	( 6,709   )	( 67,087     )
