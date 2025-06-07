@@ -1,0 +1,78 @@
+°°° Counting Sort °°°
+
+Counting Sort comienza identificando el valor máximo en la lista para crear un arreglo auxiliar 
+llamado contador, donde cada posición representa un posible valor del arreglo original. Luego, 
+recorre la lista original y cuenta cuántas veces aparece cada valor, almacenando esa frecuencia 
+en el arreglo contador. Después, recorre el arreglo contador y, por cada posición, reconstruye la 
+lista ordenada agregando el valor correspondiente tantas veces como indique su frecuencia. 
+Este proceso se repite hasta que se hayan colocado todos los elementos en orden. Counting Sort 
+no compara elementos entre sí, y es especialmente eficiente cuando se trabaja con valores enteros 
+no negativos y dentro de un rango limitado.
+
+°Tiempo de ordenamiento°
+°Mejor caso: O(n + k)
+ Counting Sort siempre recorre la lista para contar las frecuencias y luego reconstruirla, por lo 
+ que su tiempo no depende del orden inicial.
+
+°Caso promedio: O(n + k)
+ Independientemente de la distribución de los datos, realiza las mismas operaciones de conteo y 
+ reconstrucción.
+
+°Peor caso: O(n + k)
+ Incluso si el rango de valores k es grande, el algoritmo sigue realizando la misma cantidad de 
+ pasos básicos, aunque la eficiencia puede disminuir si k es mucho mayor que n.
+
+
+°Ventajas°
+-Tiene una complejidad lineal O(n + k), muy eficiente cuando el rango de valores (k) es pequeño 
+ en comparación con el número de elementos (n).
+-No es un algoritmo basado en comparaciones, lo que le permite superar la barrera teórica de 
+ O(n log n) para ciertos casos.
+-Es un algoritmo estable, mantiene el orden relativo de los elementos con valores iguales.
+-Fácil de implementar y muy rápido para datos enteros dentro de un rango limitado.
+
+°Desventajas°
+-No es adecuado para datos con un rango muy grande (k grande) porque el uso de memoria y tiempo 
+ crece con el rango, no solo con el número de elementos.
+-Requiere memoria adicional proporcional al rango de valores (k), lo que puede ser costoso en 
+ términos de espacio.
+-Solo funciona con datos que se puedan contar, típicamente números enteros no negativos o que se 
+ puedan mapear a índices.
+
+
+
+°° PROGRAMA: CountingSort.py °°
+
+Para comprobar su eficiencia se realizo un programa "CountingSort.py" que se encuentra en la misma
+carpeta que este archivo.
+-El programa realiza el ordenamiento de 5 conjuntos cada uno con una cantidad diferente 
+ de elementos, los elementos son generados de forma aleatoria:
+	1er conjunto: 2 elementos
+	2do conjunto: 10 elementos
+	3er conjunto: 100 elementos
+	4to conjunto: 1000 elementos
+	5to conjunto: 10000 elementos
+
+
+Estos fueron los resultados de una ejecución del programa, se muestra la cantidad de elementos que
+se ordenaron y los pasos que tardó en realizar el ordenamiento:
+2 elementos... 15 pasos
+10 elementos... 71 pasos
+100 elementos... 698 pasos
+1000 elementos... 6656 pasos
+10000 elementos... 61001 pasos
+
+
+
+La tabla siguiente representa una comparación de su eficiencia con otros algoritmos de ordenamiento
+(Todos hicieron la prueba con los mismos 5 conjuntos):
+
+		2 elementos	10 elementos	100 elementos	1,000 elementos	10,000 elementos
+InsertionSort	( 7  )		( 72  )	 	( 5,147 )	( 502,197 )	( 50,028,401 )
+BubbleSort	( 4  )		( 126 )		( 5,038 )	( 503,344 )	( 49,985,874 )
+MergeSort	( 14 )		( 107 )		( 1,082 )	( 11,766  )	( 132,104    )
+HeapSort	( 14 )		( 100 )		( 1,220 )	( 14,184  )	( 167,208    )
+QuickSort	( 10 )		( 71  )		( 751   )	( 9,904   )	( 117,163    )
+CountingSort	( 24  )		( 72  )		( 612   )	( 6,012   )	( 60,012     )
+RadixSort	( 33 )		( 97  )		( 969   )	( 10,314  )	( 108,804    )
+BucketSort	( 31 )		( 63  )		( 610   )	( 6,709   )	( 67,087     )
